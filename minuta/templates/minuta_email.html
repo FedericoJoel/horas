@@ -1,0 +1,44 @@
+<p>Minuta: {{ motivo }}</p>
+<p>Descripcion: {{ descripcion }}</p>
+<p>Asistentes:</p>
+<ul>
+{% for asistente in asistentes %}
+    <li>{{ asistente.nombre}} {{asistente.apellido}} </li>
+{% endfor %}
+</ul>
+<p>Temas:</p>
+<ul>
+{% for tema in temas %}
+    <li>{{ tema.tema.titulo }}</li>
+    <ul>
+        {% for definicion in tema.definiciones %}
+                <li>{{ definicion.texto }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+</ul>
+<p>Responsabilidades</p>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse">
+    <thead>
+    <tr>
+        <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">Reponsables</th>
+        <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">Tarea</th>
+        <th style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">Fecha</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for responsabilidad in responsabilidades %}
+            <tr>
+                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">
+                    <ul>
+                        {% for responsable in responsabilidad.responsables %}
+                            <li>{{ responsable.nombre }} {{ responsable.apellido }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">{{ responsabilidad.responsabilidad.tarea }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: left">{{ responsabilidad.responsabilidad.fecha }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
