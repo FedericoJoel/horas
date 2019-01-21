@@ -7,7 +7,7 @@ class EmpresaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empresa
-        fields = '__all__'
+        fields = ('id', 'nombre')
 
 
 class ProgramadorSerializer(serializers.ModelSerializer):
@@ -25,17 +25,32 @@ class HoraSerializer(serializers.ModelSerializer):
 
 
 class ProyectoSerializer(serializers.ModelSerializer):
+    empresa_detalle = serializers.SerializerMethodField()
+    programadores_detalle = serializers.SerializerMethodField()
+
+    def get_programadores_detalle(self, obj):
+        ser = ProgramadorSerializer(obj.programadores, many=True)
+        return ser.data
+
+    def get_empresa_detalle(self, obj):
+        ser = EmpresaSerializer(obj.empresa)
+        return ser.data
 
     class Meta:
         model = Proyecto
-        fields = '__all__'
+        fields = ('nombre', 'empresa', 'programadores', 'horas_presupuestada', 'fecha_limite', 'empresa_detalle', 'programadores_detalle')
 
 
 class AsistenteSerializer(serializers.ModelSerializer):
+    empresa_detalle = serializers.SerializerMethodField()
+
+    def get_empresa_detalle(self, obj):
+        ser = EmpresaSerializer(obj.empresa)
+        return ser.data
 
     class Meta:
         model = Asistente
-        fields = ('id', 'empresa', 'nombre', 'apellido', 'mail')
+        fields = ('id', 'empresa', 'nombre', 'apellido', 'mail', 'empresa_detalle')
 
 
 class DefinicionSerializer(serializers.ModelSerializer):
@@ -58,8 +73,7 @@ class MinutaSerializer(serializers.ModelSerializer):
     asistentes_detalle = serializers.SerializerMethodField()
 
     def get_asistentes_detalle(self, obj):
-        asis = Minuta.objects.get(id=obj.id).asistentes.all()
-        ser = AsistenteSerializer(asis, many=True)
+        ser = AsistenteSerializer(obj.asistentes, many=True)
         return ser.data
 
     class Meta:

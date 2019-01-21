@@ -805,276 +805,280 @@ asistente_id</ColNames>
       <DataType>real|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="183" parent="25" name="minuta_movimiento_programador_id_62a9bd6e">
+    <column id="183" parent="25" name="fecha">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <index id="184" parent="25" name="minuta_movimiento_programador_id_62a9bd6e">
       <ColNames>programador_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="184" parent="25">
+    <key id="185" parent="25">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="185" parent="25">
+    <foreign-key id="186" parent="25">
       <ColNames>programador_id</ColNames>
       <RefTableName>minuta_programador</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="186" parent="26" name="id">
+    <column id="187" parent="26" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="187" parent="26" name="nombre">
+    <column id="188" parent="26" name="nombre">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="188" parent="26" name="apellido">
+    <column id="189" parent="26" name="apellido">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="189" parent="26" name="mail">
+    <column id="190" parent="26" name="mail">
       <Position>4</Position>
       <DataType>varchar(254)|0s</DataType>
     </column>
-    <column id="190" parent="26" name="es_socio">
+    <column id="191" parent="26" name="es_socio">
       <Position>5</Position>
       <DataType>bool|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="191" parent="26">
+    <key id="192" parent="26">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="192" parent="27" name="id">
+    <column id="193" parent="27" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="193" parent="27" name="nombre">
+    <column id="194" parent="27" name="nombre">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="194" parent="27" name="empresa_id">
+    <column id="195" parent="27" name="empresa_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="195" parent="27" name="fecha_limite">
+    <column id="196" parent="27" name="fecha_limite">
       <Position>4</Position>
       <DataType>date|0s</DataType>
     </column>
-    <column id="196" parent="27" name="horas_presupuestada">
+    <column id="197" parent="27" name="horas_presupuestada">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="197" parent="27" name="minuta_proyecto_empresa_id_6abd5a9e">
+    <index id="198" parent="27" name="minuta_proyecto_empresa_id_6abd5a9e">
       <ColNames>empresa_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="198" parent="27">
+    <key id="199" parent="27">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="199" parent="27">
+    <foreign-key id="200" parent="27">
       <ColNames>empresa_id</ColNames>
       <RefTableName>minuta_empresa</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="200" parent="28" name="id">
+    <column id="201" parent="28" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="201" parent="28" name="proyecto_id">
+    <column id="202" parent="28" name="proyecto_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="202" parent="28" name="programador_id">
+    <column id="203" parent="28" name="programador_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="203" parent="28" name="minuta_proyecto_programadores_proyecto_id_programador_id_5f1cf47c_uniq">
+    <index id="204" parent="28" name="minuta_proyecto_programadores_proyecto_id_programador_id_5f1cf47c_uniq">
       <ColNames>proyecto_id
 programador_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="204" parent="28" name="minuta_proyecto_programadores_proyecto_id_847c5114">
+    <index id="205" parent="28" name="minuta_proyecto_programadores_proyecto_id_847c5114">
       <ColNames>proyecto_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="205" parent="28" name="minuta_proyecto_programadores_programador_id_3c5865b3">
+    <index id="206" parent="28" name="minuta_proyecto_programadores_programador_id_3c5865b3">
       <ColNames>programador_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="206" parent="28">
+    <key id="207" parent="28">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="207" parent="28">
+    <foreign-key id="208" parent="28">
       <ColNames>proyecto_id</ColNames>
       <RefTableName>minuta_proyecto</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <foreign-key id="208" parent="28">
+    <foreign-key id="209" parent="28">
       <ColNames>programador_id</ColNames>
       <RefTableName>minuta_programador</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="209" parent="29" name="id">
+    <column id="210" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="210" parent="29" name="fecha">
+    <column id="211" parent="29" name="fecha">
       <Position>2</Position>
       <DataType>date|0s</DataType>
     </column>
-    <column id="211" parent="29" name="tarea">
+    <column id="212" parent="29" name="tarea">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="212" parent="29" name="minuta_id">
+    <column id="213" parent="29" name="minuta_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="213" parent="29" name="minuta_responsabilidad_minuta_id_c1fc01ac">
+    <index id="214" parent="29" name="minuta_responsabilidad_minuta_id_c1fc01ac">
       <ColNames>minuta_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="214" parent="29">
+    <key id="215" parent="29">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="215" parent="29">
+    <foreign-key id="216" parent="29">
       <ColNames>minuta_id</ColNames>
       <RefTableName>minuta_minuta</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="216" parent="30" name="id">
+    <column id="217" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="217" parent="30" name="responsabilidad_id">
+    <column id="218" parent="30" name="responsabilidad_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="218" parent="30" name="asistente_id">
+    <column id="219" parent="30" name="asistente_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="219" parent="30" name="minuta_responsabilidad_responsables_responsabilidad_id_asistente_id_8085e3e7_uniq">
+    <index id="220" parent="30" name="minuta_responsabilidad_responsables_responsabilidad_id_asistente_id_8085e3e7_uniq">
       <ColNames>responsabilidad_id
 asistente_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="220" parent="30" name="minuta_responsabilidad_responsables_responsabilidad_id_0ca86f5b">
+    <index id="221" parent="30" name="minuta_responsabilidad_responsables_responsabilidad_id_0ca86f5b">
       <ColNames>responsabilidad_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="221" parent="30" name="minuta_responsabilidad_responsables_asistente_id_30afb1fc">
+    <index id="222" parent="30" name="minuta_responsabilidad_responsables_asistente_id_30afb1fc">
       <ColNames>asistente_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="222" parent="30">
+    <key id="223" parent="30">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="223" parent="30">
+    <foreign-key id="224" parent="30">
       <ColNames>responsabilidad_id</ColNames>
       <RefTableName>minuta_responsabilidad</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <foreign-key id="224" parent="30">
+    <foreign-key id="225" parent="30">
       <ColNames>asistente_id</ColNames>
       <RefTableName>minuta_asistente</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="225" parent="31" name="id">
+    <column id="226" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="226" parent="31" name="titulo">
+    <column id="227" parent="31" name="titulo">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="227" parent="31" name="minuta_id">
+    <column id="228" parent="31" name="minuta_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="228" parent="31" name="minuta_tema_minuta_id_34ad3972">
+    <index id="229" parent="31" name="minuta_tema_minuta_id_34ad3972">
       <ColNames>minuta_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="229" parent="31">
+    <key id="230" parent="31">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="230" parent="31">
+    <foreign-key id="231" parent="31">
       <ColNames>minuta_id</ColNames>
       <RefTableName>minuta_minuta</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="231" parent="32" name="type">
+    <column id="232" parent="32" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="232" parent="32" name="name">
+    <column id="233" parent="32" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="233" parent="32" name="tbl_name">
+    <column id="234" parent="32" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="234" parent="32" name="rootpage">
+    <column id="235" parent="32" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="235" parent="32" name="sql">
+    <column id="236" parent="32" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="236" parent="33" name="name">
+    <column id="237" parent="33" name="name">
       <Position>1</Position>
     </column>
-    <column id="237" parent="33" name="seq">
+    <column id="238" parent="33" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
