@@ -38,7 +38,7 @@ class ProyectoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Proyecto
-        fields = ('nombre', 'empresa', 'programadores', 'horas_presupuestada', 'fecha_limite', 'empresa_detalle', 'programadores_detalle')
+        fields = ('id', 'nombre', 'empresa', 'programadores', 'horas_presupuestada', 'fecha_limite', 'empresa_detalle', 'programadores_detalle')
 
 
 class AsistenteSerializer(serializers.ModelSerializer):
@@ -92,4 +92,4 @@ class MovimientoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movimiento
-        fields = ('id', 'concepto', 'monto', 'programador', 'descripcion')
+        fields = ('id', 'concepto', 'monto', 'programador', 'descripcion', 'fecha')

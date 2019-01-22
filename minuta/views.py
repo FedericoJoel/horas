@@ -8,6 +8,7 @@ from minuta.services.minuta_service import MinutaService
 from rest_framework.views import APIView
 from minuta.services.cotizador_service import Cotizador
 
+
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()
     serializer_class = EmpresaSerializer
@@ -82,3 +83,8 @@ class CotizacionDelMes(APIView):
         return Response(cotizacion)
 
 
+class CotizacionAjuste(APIView):
+
+    def get(self, request):
+        mes = request.query_params.get('mes')
+        return Response(Cotizador.cotizarAjuste(mes))

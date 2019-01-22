@@ -1,5 +1,5 @@
 from rest_framework import routers
-from minuta.views import EmpresaViewSet, ProyectoViewSet, MinutaViewSet, AsistenteViewSet, TemaViewSet, DefinicionViewSet, ResponsabilidadViewSet, HoraViewSet, ProgramadorViewSet, MovimientoViewSet, CotizacionDelMes
+from minuta.views import EmpresaViewSet, ProyectoViewSet, MinutaViewSet, AsistenteViewSet, TemaViewSet, DefinicionViewSet, ResponsabilidadViewSet, HoraViewSet, ProgramadorViewSet, MovimientoViewSet, CotizacionDelMes, CotizacionAjuste
 from django.urls import path
 
 router = routers.DefaultRouter()
@@ -15,7 +15,8 @@ router.register(r'horas', HoraViewSet)
 router.register(r'movimientos', MovimientoViewSet)
 
 urlpatterns = [
-    path('cotizacion/', CotizacionDelMes.as_view(), name='cotizacion_del_mes')
+    path('cotizacion/', CotizacionDelMes.as_view(), name='cotizacion_del_mes'),
+    path('cotizacion/con_ajuste/', CotizacionAjuste.as_view(), name='cotizacion_con_ajuste')
 ]
 
 urlpatterns += router.urls
