@@ -38,50 +38,50 @@ def programadores_ajuste(mes):
                                 FROM minuta_movimiento
                                  where minuta_movimiento.programador_id = minuta_programador.id
                                   and minuta_movimiento.monto < 0 
-                                  and cast(strftime('%m', minuta_movimiento.fecha) as int) = %s ) is null
+                                  and cast(strftime('%%m', minuta_movimiento.fecha) as int) = %s ) is null
                                    then 0 
                                    else (SELECT SUM(minuta_movimiento.monto) 
                                         FROM minuta_movimiento 
                                         where minuta_movimiento.programador_id = minuta_programador.id
                                          and minuta_movimiento.monto < 0 
-                                         and cast(strftime('%m', minuta_movimiento.fecha) as int) = %s) 
+                                         and cast(strftime('%%m', minuta_movimiento.fecha) as int) = %s) 
                                           end as total_gastos,
                                           
                     CASE WHEN (select sum(minuta_hora.cantidad_horas)
                                 from minuta_hora
                                  where minuta_hora.programador_id = minuta_programador.id
-                                  and  cast(strftime("%m", minuta_movimiento.fecha) as int) = %s ) is null 
+                                  and  cast(strftime('%%m', minuta_hora.fecha) as int) = %s ) is null 
                                   then 0 
                                   else (select sum(minuta_hora.cantidad_horas)
                                         from minuta_hora 
                                         where minuta_hora.programador_id = minuta_programador.id
-                                          and  cast(strftime('%m', minuta_movimiento.fecha) as int) = %s )
+                                          and  cast(strftime('%%m', minuta_hora.fecha) as int) = %s )
                                           end as total_horas_mes,
                                           
                     CASE WHEN (SELECT SUM(minuta_movimiento.monto)
                                 FROM minuta_movimiento
                                  where minuta_movimiento.programador_id = minuta_programador.id
-                                  and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) <= 3  
-                                  and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) > 0) is null 
+                                  and (%s - cast(strftime('%%m', minuta_movimiento.fecha) as int)) <= 3  
+                                  and (%s - cast(strftime('%%m', minuta_movimiento.fecha) as int)) > 0) is null 
                                    then 0 
                                    else (SELECT SUM(minuta_movimiento.monto) 
                                         FROM minuta_movimiento 
                                         where minuta_movimiento.programador_id = minuta_programador.id
-                                          and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) <= 3  
-                                          and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) > 0) 
+                                          and (%s - cast(strftime('%%m', minuta_movimiento.fecha) as int)) <= 3  
+                                          and (%s - cast(strftime('%%m', minuta_movimiento.fecha) as int)) > 0) 
                                           end as total_ganancia_ajuste,                      
                                           
                     CASE WHEN (select sum(minuta_hora.cantidad_horas)
                                 from minuta_hora
                                  where minuta_hora.programador_id = minuta_programador.id
-                                  and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) <= 3  
-                                  and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) > 0) is null 
+                                  and (%s - cast(strftime('%%m', minuta_hora.fecha) as int)) <= 3  
+                                  and (%s - cast(strftime('%%m', minuta_hora.fecha) as int)) > 0) is null 
                                   then 0 
                                   else (select sum(minuta_hora.cantidad_horas)
                                         from minuta_hora 
                                         where minuta_hora.programador_id = minuta_programador.id
-                                          and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) <= 3  
-                                          and (%s - cast(strftime('%m', minuta_movimiento.fecha) as int)) > 0)
+                                          and (%s - cast(strftime('%%m', minuta_hora.fecha) as int)) <= 3  
+                                          and (%s - cast(strftime('%%m', minuta_hora.fecha) as int)) > 0)
                                           end as total_horas_ajuste
                     from minuta_programador
                     where minuta_programador.es_socio = 1
@@ -109,6 +109,16 @@ class Cotizador:
 
     def cotizarAjuste(mes):
         programadores  = programadores_ajuste(mes)
+        horas_totales = sum([pr['total_horas_ajuste'] for pr in programadores])
+        ganancia_total = sum([pr['total_ganancia_ajuste'] for pr in programadores])
+
+        for programador in programadores:
+            porcentaje_horas = programador['total_horas_ajuste'] / horas_totales
+            porcentaje_ganancia = programador['total_ganancia_ajuste'] / ganancia_total
+            diferencia_porcentaje = porcentaje_ganancia - porcentaje_horas
+            adicional = ganancia_total * diferencia_porcentaje
+            programador.update({'porcentaje_horas_ajuste': porcentaje_horas})
+
         return programadores
         # cantidad total de horas del periodo
         # porcentaje que cada uno trabajo de esas horas

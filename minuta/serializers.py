@@ -68,19 +68,6 @@ class TemaSerializer(serializers.ModelSerializer):
         fields = ('id', 'minuta', 'titulo', 'definiciones')
 
         
-class MinutaSerializer(serializers.ModelSerializer):
-    temas = TemaSerializer(many=True, read_only=True)
-    asistentes_detalle = serializers.SerializerMethodField()
-
-    def get_asistentes_detalle(self, obj):
-        ser = AsistenteSerializer(obj.asistentes, many=True)
-        return ser.data
-
-    class Meta:
-        model = Minuta
-        fields = ('id', 'fecha', 'proyecto', 'motivo', 'descripcion', 'asistentes', 'temas', 'asistentes_detalle')
-
-
 class ResponsabilidadSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -93,3 +80,18 @@ class MovimientoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movimiento
         fields = ('id', 'concepto', 'monto', 'programador', 'descripcion', 'fecha')
+
+
+class MinutaSerializer(serializers.ModelSerializer):
+    temas = TemaSerializer(many=True, read_only=True)
+    asistentes_detalle = serializers.SerializerMethodField()
+    responsabilidades = ResponsabilidadSerializer(many=True, read_only=True)
+
+
+    def get_asistentes_detalle(self, obj):
+        ser = AsistenteSerializer(obj.asistentes, many=True)
+        return ser.data
+
+    class Meta:
+        model = Minuta
+        fields = ('id', 'fecha', 'proyecto', 'motivo', 'descripcion', 'asistentes', 'temas', 'asistentes_detalle', 'responsabilidades')

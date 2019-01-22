@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b457979e-4a7f-44a3-9f04-c71d623172cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minuta/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/minuta/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minuta/services/cotizador_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/minuta/services/cotizador_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minuta/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/minuta/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minuta/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/minuta/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,11 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minuta/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-555">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -68,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minuta/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="270">
               <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -80,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minuta/services/cotizador_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="87" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="87" />
+            <state relative-caret-position="414">
+              <caret line="116" column="68" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="68" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -89,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/711223f0-3141-49eb-beac-731c9de50c62/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+            <state relative-caret-position="90">
+              <caret line="6" column="53" lean-forward="true" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -101,29 +94,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minuta/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="36" column="28" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="28" />
+            <state relative-caret-position="210">
+              <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/minuta/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="94" column="81" selection-start-line="94" selection-start-column="81" selection-end-line="94" selection-end-column="81" />
+            <state relative-caret-position="563">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://711223f0-3141-49eb-beac-731c9de50c62/schema/main/table/minuta_proyecto_programadores">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -169,10 +153,10 @@
         <option value="$PROJECT_DIR$/minuta/tests.py" />
         <option value="$PROJECT_DIR$/minuta/models.py" />
         <option value="$PROJECT_DIR$/minuta/views.py" />
-        <option value="$PROJECT_DIR$/minuta/serializers.py" />
         <option value="$PROJECT_DIR$/minuta/urls.py" />
-        <option value="$PROJECT_DIR$/minuta/services/cotizador_service.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/711223f0-3141-49eb-beac-731c9de50c62/console.sql" />
+        <option value="$PROJECT_DIR$/minuta/services/cotizador_service.py" />
+        <option value="$PROJECT_DIR$/minuta/serializers.py" />
       </list>
     </option>
   </component>
@@ -297,6 +281,7 @@
       <workItem from="1547849588220" duration="3488000" />
       <workItem from="1548079792400" duration="7537000" />
       <workItem from="1548112211672" duration="6377000" />
+      <workItem from="1548172164014" duration="4146000" />
     </task>
     <servers />
   </component>
@@ -333,7 +318,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227892000" />
+    <option name="totallyTimeSpent" value="232038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -345,7 +330,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.29767442" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3782946" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4744186" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -355,12 +340,12 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32921174" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32868218" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921174" />
-      <window_info anchor="bottom" id="Database Console" order="13" visible="true" weight="0.35968992" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.35968992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.2876494" />
+      <window_info anchor="right" id="Database" order="4" weight="0.2876494" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22231075" />
@@ -388,17 +373,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/minuta/services/cotizador_service.py</url>
-          <line>111</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -788,26 +762,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://711223f0-3141-49eb-beac-731c9de50c62/schema/main/table/minuta_proyecto_programadores">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minuta/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://711223f0-3141-49eb-beac-731c9de50c62/schema/main/table/minuta_proyecto_programadores" />
     <entry file="file://$PROJECT_DIR$/minuta/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="270">
           <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
@@ -815,37 +773,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/711223f0-3141-49eb-beac-731c9de50c62/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="53" lean-forward="true" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minuta/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/minuta/services/cotizador_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="87" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="87" />
+        <state relative-caret-position="414">
+          <caret line="116" column="68" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="68" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minuta/models.py">
+    <entry file="file://$PROJECT_DIR$/minuta/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="28" />
+        <state relative-caret-position="-555">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/minuta/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="94" column="81" selection-start-line="94" selection-start-column="81" selection-end-line="94" selection-end-column="81" />
+        <state relative-caret-position="563">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/711223f0-3141-49eb-beac-731c9de50c62/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
         </state>
       </provider>
     </entry>
