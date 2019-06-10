@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento
-from .serializers import EmpresaSerializer, ProyectoSerializer, AsistenteSerializer, MinutaSerializer, TemaSerializer, DefinicionSerializer, ResponsabilidadSerializer, ProgramadorSerializer, HoraSerializer, MovimientoSerializer
+from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
+from .serializers import EmpresaSerializer, ProyectoSerializer, AsistenteSerializer, MinutaSerializer, TemaSerializer, DefinicionSerializer, ResponsabilidadSerializer, ProgramadorSerializer, HoraSerializer, MovimientoSerializer, TicketSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
@@ -11,7 +11,9 @@ from rest_framework.permissions import IsAuthenticated
 
 
 
-
+class TicketViewset(viewsets.ModelViewSet):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
 
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()

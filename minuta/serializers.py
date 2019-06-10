@@ -23,11 +23,13 @@ class HoraSerializer(serializers.ModelSerializer):
         model = Hora
         fields = ('id', 'programador', 'proyecto', 'cantidad_horas', 'descripcion', 'fecha', 'ticket')
 
+
 class TicketSerializer(serializers.ModelSerializer):
+
     proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
     class Meta:
         model = Ticket
-        field = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre')
+        fields = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre')
 
 class ProyectoSerializer(serializers.ModelSerializer):
     empresa_detalle = serializers.SerializerMethodField()

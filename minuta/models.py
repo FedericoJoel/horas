@@ -63,11 +63,15 @@ class Ticket(models.Model):
         ('R', 'Resuelto'),
         ('C', 'Cerrado'),
     )
+
     nombre = models.TextField()
     descripcion = models.TextField()
     prioridad = models.CharField(choices=PRIORITIES, max_length=1, default='M')
     status = models.CharField(choices=STATUS, max_length=1, default='A')
     proyecto = models.ForeignKey(Proyecto, related_name="tickets", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return  self.nombre
 
 class Hora(models.Model):
     cantidad_horas = models.IntegerField()
