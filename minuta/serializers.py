@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento
+from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
 
 
 class EmpresaSerializer(serializers.ModelSerializer):
@@ -21,12 +21,18 @@ class HoraSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hora
-        fields = ('id', 'programador', 'proyecto', 'cantidad_horas', 'descripcion', 'fecha')
+        fields = ('id', 'programador', 'proyecto', 'cantidad_horas', 'descripcion', 'fecha', 'ticket')
 
+class TicketSerializer(serializers.ModelSerializer):
+    proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
+    class Meta:
+        model = Ticket
+        field = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre')
 
 class ProyectoSerializer(serializers.ModelSerializer):
     empresa_detalle = serializers.SerializerMethodField()
     programadores_detalle = serializers.SerializerMethodField()
+
 
     def get_programadores_detalle(self, obj):
         ser = ProgramadorSerializer(obj.programadores, many=True)
@@ -38,7 +44,8 @@ class ProyectoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Proyecto
-        fields = ('id', 'nombre', 'empresa', 'programadores', 'horas_presupuestada', 'fecha_limite', 'empresa_detalle', 'programadores_detalle')
+        fields = ('id', 'nombre', 'empresa', 'programadores', 'responsable', 'horas', 'fecha_inicio', 'fecha_limite',
+                  'pago', 'empresa_detalle', 'programadores_detalle')
 
 
 class AsistenteSerializer(serializers.ModelSerializer):
@@ -76,10 +83,13 @@ class ResponsabilidadSerializer(serializers.ModelSerializer):
 
 
 class MovimientoSerializer(serializers.ModelSerializer):
-
+    programador = ProgramadorSerializer(read_only=True)
+    programador_id = serializers.PrimaryKeyRelatedField(queryset=Programador.objects.all(), write_only=True, source='programador')
+    #proyecto_id = serializers.PrimaryKeyRelatedField(queryset=Proyecto.objects.all(), source='proyecto')
+    proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
     class Meta:
         model = Movimiento
-        fields = ('id', 'concepto', 'monto', 'programador', 'descripcion', 'fecha')
+        fields = ('id', 'concepto', 'monto', 'tipo', 'programador', 'programador_id', 'descripcion', 'fecha', 'proyecto_nombre', 'proyecto')
 
 
 class MinutaSerializer(serializers.ModelSerializer):

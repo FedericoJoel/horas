@@ -15,36 +15,66 @@ class Programador(models.Model):
     es_socio = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.apellido
+        return  self.nombre + ' ' + self.apellido
 
 
 class Proyecto(models.Model):
     nombre = models.CharField(max_length=50)
     empresa = models.ForeignKey(Empresa, related_name='proyectos', on_delete=models.CASCADE)
-    horas_presupuestada = models.IntegerField()
+    horas = models.IntegerField()
     fecha_limite = models.DateField(null=True, blank=True)
+    fecha_inicio = models.DateField(null=True, blank=True)
     programadores = models.ManyToManyField(Programador)
+    responsable = models.ForeignKey(Programador, related_name='proyectos', on_delete=models.CASCADE)
+    pago = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre
 
 
 class Movimiento(models.Model):
+    TYPES = (
+        ('C', 'Cobro'),
+        ('P', 'Pago'),
+    )
     concepto = models.CharField(max_length=200)
     programador = models.ForeignKey(Programador, related_name='movimientos', on_delete=models.CASCADE)
     monto = models.FloatField()
     descripcion = models.TextField()
     fecha = models.DateField(null=True, blank=True)
+    proyecto = models.ForeignKey(Proyecto, related_name="movimientos", on_delete=models.CASCADE)
+    tipo = models.CharField(choices=TYPES, max_length=1, default='C')
 
     def __str__(self):
         return self.concepto
 
+class Ticket(models.Model):
+    PRIORITIES = (
+        ('C', 'Critical'),
+        ('H', 'High'),
+        ('M', 'Medium'),
+        ('L', 'Low'),
+    )
+
+    STATUS = (
+        ('A', 'Abierto'),
+        ('P', 'En progreso'),
+        ('B', 'Bloqueado'),
+        ('R', 'Resuelto'),
+        ('C', 'Cerrado'),
+    )
+    nombre = models.TextField()
+    descripcion = models.TextField()
+    prioridad = models.CharField(choices=PRIORITIES, max_length=1, default='M')
+    status = models.CharField(choices=STATUS, max_length=1, default='A')
+    proyecto = models.ForeignKey(Proyecto, related_name="tickets", on_delete=models.CASCADE)
 
 class Hora(models.Model):
     cantidad_horas = models.IntegerField()
     fecha = models.DateField(null=True, blank=True)
-    programador = models.ForeignKey(Programador, related_name="horas", on_delete=models.CASCADE)
-    proyecto = models.ForeignKey(Proyecto, related_name="horas", on_delete=models.CASCADE)
+    ticket = models.ForeignKey(Ticket, related_name="horas_aplicadas", on_delete=models.CASCADE)
+    programador = models.ForeignKey(Programador, related_name="horas_aplicadas", on_delete=models.CASCADE)
+    proyecto = models.ForeignKey(Proyecto, related_name="horas_aplicadas", on_delete=models.CASCADE)
     descripcion = models.TextField()
 
     def __str__(self):

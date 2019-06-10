@@ -7,6 +7,10 @@ from django.db import transaction
 from minuta.services.minuta_service import MinutaService
 from rest_framework.views import APIView
 from minuta.services.cotizador_service import Cotizador
+from rest_framework.permissions import IsAuthenticated
+
+
+
 
 
 class EmpresaViewSet(viewsets.ModelViewSet):
@@ -70,6 +74,7 @@ class DefinicionViewSet(viewsets.ModelViewSet):
 
 
 class MovimientoViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Movimiento.objects.all()
     serializer_class = MovimientoSerializer
 

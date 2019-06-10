@@ -28,6 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -90,8 +96,12 @@ WSGI_APPLICATION = 'minutaReunion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'b3523hos_minutas',
+        'USER': 'b3523hos_minutas',
+        'PASSWORD': 'Apolo3684!',
+        'HOST': '3523.b.hostable.me',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
