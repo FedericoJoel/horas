@@ -93,6 +93,9 @@ class Respuesta(models.Model):
     texto = models.TextField()
     ticket = models.ForeignKey(Ticket, related_name="respuestas", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.texto
+
 class Asistente(models.Model):
     empresa = models.ForeignKey(Empresa, related_name='empleados', on_delete=models.CASCADE)
     nombre = models.CharField(max_length=50)

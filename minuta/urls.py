@@ -11,7 +11,8 @@ from minuta.views import EmpresaViewSet,\
     MovimientoViewSet,\
     CotizacionDelMes,\
     CotizacionAjuste,\
-    TicketViewset
+    TicketViewset,\
+    RespuestaViewSet
 
 from django.urls import path
 from rest_framework_simplejwt import views as jwt_views
@@ -29,6 +30,7 @@ router.register(r'responsabilidades', ResponsabilidadViewSet)
 router.register(r'horas', HoraViewSet)
 router.register(r'movimientos', MovimientoViewSet)
 router.register(r'tickets', TicketViewset)
+router.register(r'respuestas', RespuestaViewSet)
 
 urlpatterns = [
     path('cotizacion/', CotizacionDelMes.as_view(), name='cotizacion_del_mes'),

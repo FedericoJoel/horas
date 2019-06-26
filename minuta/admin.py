@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from .models import Programador, Ticket, Respuesta ,Empresa, Proyecto, Minuta, Asistente, Tema, Responsabilidad, Definicion
+from .models import Programador, Ticket, Respuesta, Empresa, Proyecto, Minuta, Asistente, Tema, Responsabilidad, Definicion
 
 admin.site.register(Empresa)
 admin.site.register(Proyecto)

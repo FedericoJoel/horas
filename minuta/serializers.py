@@ -28,7 +28,7 @@ class TicketSerializer(serializers.ModelSerializer):
     proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
     class Meta:
         model = Ticket
-        fields = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre', 'proyecto_nombre')
+        fields = ('titulo', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre', 'proyecto_nombre')
         read_only_fields = ('fecha_apertura',)
 
 
