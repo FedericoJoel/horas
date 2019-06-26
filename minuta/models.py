@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 
 class Empresa(models.Model):
@@ -50,28 +51,31 @@ class Movimiento(models.Model):
 
 class Ticket(models.Model):
     PRIORITIES = (
-        ('C', 'Critical'),
-        ('H', 'High'),
-        ('M', 'Medium'),
-        ('L', 'Low'),
+        ('C', 'Critico'),
+        ('A', 'Alto'),
+        ('M', 'Medio'),
+        ('B', 'Bajo'),
     )
 
     STATUS = (
-        ('A', 'Abierto'),
-        ('P', 'En progreso'),
+        ('P', 'Pendiente'),
+        ('E', 'En progreso'),
         ('B', 'Bloqueado'),
         ('R', 'Resuelto'),
         ('C', 'Cerrado'),
     )
 
-    nombre = models.TextField()
+    titulo = models.TextField()
     descripcion = models.TextField()
     prioridad = models.CharField(choices=PRIORITIES, max_length=1, default='M')
-    status = models.CharField(choices=STATUS, max_length=1, default='A')
+    status = models.CharField(choices=STATUS, max_length=1, default='P')
     proyecto = models.ForeignKey(Proyecto, related_name="tickets", on_delete=models.CASCADE)
+    fecha_apertura = models.DateTimeField(default=datetime.date.today)
+    fecha_estimada = models.DateTimeField(null=True, blank=True)
+
 
     def __str__(self):
-        return  self.nombre
+        return  self.titulo
 
 class Hora(models.Model):
     cantidad_horas = models.IntegerField()
@@ -84,6 +88,10 @@ class Hora(models.Model):
     def __str__(self):
         return self.descripcion
 
+class Respuesta(models.Model):
+    fecha = models.DateTimeField(null=True, blank=True)
+    texto = models.TextField()
+    ticket = models.ForeignKey(Ticket, related_name="respuestas", on_delete=models.CASCADE)
 
 class Asistente(models.Model):
     empresa = models.ForeignKey(Empresa, related_name='empleados', on_delete=models.CASCADE)

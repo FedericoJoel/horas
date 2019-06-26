@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
-from .serializers import EmpresaSerializer, ProyectoSerializer, AsistenteSerializer, MinutaSerializer, TemaSerializer, DefinicionSerializer, ResponsabilidadSerializer, ProgramadorSerializer, HoraSerializer, MovimientoSerializer, TicketSerializer
+from .models import Respuesta, Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
+from .serializers import RespuestaSerializer, EmpresaSerializer, ProyectoSerializer, AsistenteSerializer, MinutaSerializer, TemaSerializer, DefinicionSerializer, ResponsabilidadSerializer, ProgramadorSerializer, HoraSerializer, MovimientoSerializer, TicketSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
@@ -10,10 +10,15 @@ from minuta.services.cotizador_service import Cotizador
 from rest_framework.permissions import IsAuthenticated
 
 
+class RespuestaViewSet(viewsets.ModelViewSet):
+    queryset = Respuesta.objects.all()
+    serializer_class = RespuestaSerializer
+
 
 class TicketViewset(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+
 
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()

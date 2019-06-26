@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
-from .models import Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
+from .models import Respuesta, Empresa, Proyecto, Asistente, Minuta, Tema, Definicion, Responsabilidad, Programador, Hora, Movimiento, Ticket
 
 
 class EmpresaSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Empresa
         fields = ('id', 'nombre')
@@ -18,18 +17,28 @@ class ProgramadorSerializer(serializers.ModelSerializer):
 
 
 class HoraSerializer(serializers.ModelSerializer):
-
+    proyecto_nombre = serializers.CharField(read_only = True, source='proyecto.nombre')
+    programador_nombre = serializers.CharField(read_only = True, source='programador.nombre')
     class Meta:
         model = Hora
-        fields = ('id', 'programador', 'proyecto', 'cantidad_horas', 'descripcion', 'fecha', 'ticket')
+        fields = ('id', 'programador', 'proyecto', 'cantidad_horas', 'descripcion', 'fecha', 'ticket', 'proyecto_nombre', 'programador_nombre')
 
 
 class TicketSerializer(serializers.ModelSerializer):
-
     proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
     class Meta:
         model = Ticket
-        fields = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre')
+        fields = ('nombre', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre', 'proyecto_nombre')
+        read_only_fields = ('fecha_apertura',)
+
+
+class RespuestaSerializer(serializers.ModelSerializer):
+    titulo = serializers.CharField(read_only=True, source='ticket.titulo')
+    class Meta:
+        model = Respuesta
+        fields = ('texto', 'titulo')
+        read_only_fields = ('fecha',)
+
 
 class ProyectoSerializer(serializers.ModelSerializer):
     empresa_detalle = serializers.SerializerMethodField()
