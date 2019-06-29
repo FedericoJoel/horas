@@ -28,7 +28,7 @@ class TicketSerializer(serializers.ModelSerializer):
     proyecto_nombre = serializers.CharField(read_only=True, source='proyecto.nombre')
     class Meta:
         model = Ticket
-        fields = ('titulo', 'descripcion', 'prioridad', 'status', 'proyecto', 'proyecto_nombre', 'proyecto_nombre')
+        fields = ('id', 'titulo', 'descripcion', 'prioridad', 'status', 'proyecto', 'tipo', 'proyecto_nombre', 'proyecto_nombre', 'fecha_estimada', 'fecha_apertura')
         read_only_fields = ('fecha_apertura',)
 
 
@@ -36,7 +36,7 @@ class RespuestaSerializer(serializers.ModelSerializer):
     titulo = serializers.CharField(read_only=True, source='ticket.titulo')
     class Meta:
         model = Respuesta
-        fields = ('texto', 'titulo')
+        fields = ('texto', 'titulo', 'ticket', 'fecha')
         read_only_fields = ('fecha',)
 
 

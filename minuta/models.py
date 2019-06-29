@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.utils import timezone
 
 
 class Empresa(models.Model):
@@ -65,14 +66,21 @@ class Ticket(models.Model):
         ('C', 'Cerrado'),
     )
 
+    TIPOS = (
+        ('A', 'Agregado'),
+        ('M', 'Modificacion'),
+        ('E', 'Error'),
+        ('O', 'Otro'),
+    )
+
     titulo = models.TextField()
     descripcion = models.TextField()
     prioridad = models.CharField(choices=PRIORITIES, max_length=1, default='M')
     status = models.CharField(choices=STATUS, max_length=1, default='P')
     proyecto = models.ForeignKey(Proyecto, related_name="tickets", on_delete=models.CASCADE)
-    fecha_apertura = models.DateTimeField(default=datetime.date.today)
+    fecha_apertura = models.DateTimeField(default=timezone.now)
     fecha_estimada = models.DateTimeField(null=True, blank=True)
-
+    tipo = models.CharField(choices=TIPOS, max_length=1, default='O')
 
     def __str__(self):
         return  self.titulo
